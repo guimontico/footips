@@ -1,10 +1,7 @@
 import { createAction, props } from "@ngrx/store";
-import { FixtureResponse } from 'src/app/models/fixtures';
+import { FixtureResponse, Fixtures } from 'src/app/models/fixtures';
 
-export const loadFixtures = createAction(
-  '[Fixture Page] Load Fixtures',
-  props<{ date: string }>()
-);
+export const loadFixtures = createAction('[Fixture Page] Load Fixtures');
 
 export const loadFixturesSuccess = createAction(
   '[Fixture API] Fixture Load Success',

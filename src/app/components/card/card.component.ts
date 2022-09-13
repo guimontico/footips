@@ -1,10 +1,6 @@
-import { loadFixtures } from './../../state/fixtures/fixture.actions';
-import { Fixtures, FixtureResponse } from './../../models/fixtures';
-import { environment } from './../../../environments/environment';
-import { Component, OnInit } from '@angular/core';
+import { Fixtures } from './../../models/fixtures';
+import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Store } from '@ngrx/store';
-import { selectAllFixtures } from 'src/app/state/fixtures/fixture.selectors';
 
 @Component({
   selector: 'app-card',
@@ -15,18 +11,11 @@ import { selectAllFixtures } from 'src/app/state/fixtures/fixture.selectors';
 })
 export class CardComponent implements OnInit {
 
-  API = environment.footballApi
-  public allFixtures$ = this.store.select(selectAllFixtures);
-  public fixtures: Fixtures[] = []
+  @Input() fixture!: Fixtures
 
-  constructor(private store: Store<any>) { }
+  constructor() { }
 
-  ngOnInit(): void {
-    this.store.dispatch(loadFixtures());
-    this.allFixtures$.subscribe((data) => {
-      this.fixtures = data!.response
-    })
-  }
+  ngOnInit(): void {  }
 
   showFixtureDetails(fixture: Fixtures) {
     console.log(fixture)

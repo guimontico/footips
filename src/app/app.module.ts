@@ -1,6 +1,4 @@
 import { fixtureReducer } from './state/fixtures/fixture.reducer';
-import { TipsService } from './pages/tips/tips.service';
-import { HomeService } from './pages/home/home.service';
 import { CardComponent } from './components/card/card.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -18,7 +16,8 @@ import { FixturesEffects } from './state/fixtures/fixture.effects';
 import { InputComponent } from './components/input/input.component';
 import { DatepickerComponent } from './components/datepicker/datepicker.component';
 import { SelectorComponent } from './components/selector/selector.component';
-import { SearchComponent } from './feature/search/search.component';
+import { SearchComponent } from './features/search/search.component';
+import { FixtureListComponent } from './features/fixture-list/fixture-list.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +27,8 @@ import { SearchComponent } from './feature/search/search.component';
     InputComponent,
     DatepickerComponent,
     SelectorComponent,
-    SearchComponent
+    SearchComponent,
+    FixtureListComponent
   ],
   imports: [
     BrowserModule,
@@ -40,10 +40,7 @@ import { SearchComponent } from './feature/search/search.component';
     StoreModule.forRoot({ fixtures: fixtureReducer}, {}),
     EffectsModule.forRoot([FixturesEffects]),
   ],
-  providers: [
-    HomeService,
-    TipsService
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
