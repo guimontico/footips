@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-selector',
@@ -7,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SelectorComponent implements OnInit {
 
-  constructor() { }
+  @Output() selectedEvent:EventEmitter<string> = new EventEmitter();
+
+  constructor(private elementRef:ElementRef) { }
 
   ngOnInit(): void {
+  }
+
+  ngAfterViewInit() {
+    this.elementRef.nativeElement.querySelector('#leagues')
+                                  .addEventListener('blur', this.onClick.bind(this));
+  }
+
+  onClick(event: any) {
+    this.selectedEvent.emit(event.target.value)
   }
 
 }

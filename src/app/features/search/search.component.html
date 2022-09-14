@@ -1,6 +1,15 @@
 <div class="pt-4 w-full gap-4 flex-wrap flex justify-center items-center">
-    <app-input [inputPlaceholder]="inputPlaceholder" [inputSearch]="inputSearch"
-        class="w-96 px-2"></app-input>
-    <app-selector class="w-96 px-2"></app-selector>
-    <app-datepicker class="w-96 px-2"></app-datepicker>
+  <app-input
+    class="w-96 px-2"
+    [inputPlaceholder]="inputPlaceholder"
+    [inputSearch]="inputSearch"
+    (inputedEvent)="inputedEvent($event)"></app-input>
+  <app-selector
+    class="w-96 px-2"
+    (selectedEvent)="selectedEvent($event)"></app-selector>
+  <app-datepicker
+    class="w-96 px-2"
+    (datepickedEvent)="datepickedEvent($event)"></app-datepicker>
+  <app-button
+    (clickedEvent)="searchEvent($event)"></app-button>
 </div>

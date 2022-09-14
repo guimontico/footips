@@ -18,6 +18,7 @@ import { DatepickerComponent } from './components/datepicker/datepicker.componen
 import { SelectorComponent } from './components/selector/selector.component';
 import { SearchComponent } from './features/search/search.component';
 import { FixtureListComponent } from './features/fixture-list/fixture-list.component';
+import { ButtonComponent } from './components/button/button.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { FixtureListComponent } from './features/fixture-list/fixture-list.compo
     DatepickerComponent,
     SelectorComponent,
     SearchComponent,
-    FixtureListComponent
+    FixtureListComponent,
+    ButtonComponent
   ],
   imports: [
     BrowserModule,

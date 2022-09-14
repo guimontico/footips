@@ -3,7 +3,7 @@ import { FixtureResponse } from 'src/app/models/fixtures';
 
 export const loadFixtures = createAction(
   '[Fixture Page] Load Fixtures',
-  props<{ date: string }>()
+  props<{ date: string, league: string }>()
 );
 
 export const loadFixturesSuccess = createAction(

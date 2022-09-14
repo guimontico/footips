@@ -10,18 +10,20 @@ import { selectAllFixtures } from 'src/app/state/fixtures/fixture.selectors';
 })
 export class FixtureListComponent implements OnInit {
 
-  // public allFixtures$ = this.store.select(selectAllFixtures);
+  public allFixtures$ = this.store.select(selectAllFixtures);
   public fixtures: Fixtures[] = []
 
   constructor(private store: Store<any>) { }
 
   ngOnInit(): void {
-    fetch('http://localhost:3000/response')
-      .then(response => response.json())
-      .then(fixtures => { this.fixtures = fixtures })
-    // this.allFixtures$.subscribe((data) => {
-    //   this.fixtures = data!.response
-    // })
+    // fetch('http://localhost:3000/response')
+    //   .then(response => response.json())
+    //   .then(fixtures => { this.fixtures = fixtures })
+    this.allFixtures$.subscribe((data) => {
+      if (data) {
+        this.fixtures = data!.response
+      }
+    })
   }
 
 }

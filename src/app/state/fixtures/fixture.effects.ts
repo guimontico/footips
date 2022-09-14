@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { act, Actions, createEffect, ofType } from '@ngrx/effects';
 import {
   loadFixtures,
   loadFixturesSuccess,
@@ -22,7 +22,7 @@ export class FixturesEffects {
       ofType(loadFixtures),
       switchMap((action) =>
         // Call the getFixturess method, convert it to an observable
-        from(this.fixtureService.getFixtures(action.date)).pipe(
+        from(this.fixtureService.getFixtures(action.date, action.league)).pipe(
           // Take the returned value and return a new success action containing the fixtures
           map((fixtures) => loadFixturesSuccess({ fixtures: fixtures })),
           // Or... if it errors return a new failure action containing the error
