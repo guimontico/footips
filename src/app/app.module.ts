@@ -30,7 +30,7 @@ import { ButtonComponent } from './components/button/button.component';
     SelectorComponent,
     SearchComponent,
     FixtureListComponent,
-    ButtonComponent
+    ButtonComponent,
   ],
   imports: [
     BrowserModule,
