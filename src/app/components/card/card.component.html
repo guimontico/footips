@@ -5,34 +5,47 @@
   <!-- Deader -->
   <div class="flex justify-between px-3 py-2">
     <div class="flex flex-row w-1/2 items-center">
-      <img class="h-5 px-1 object-cover"
-        src="{{fixture.league.logo}}" alt="">
+      <img class="h-5 px-1 object-cover" src="{{fixture.league.logo}}" alt="">
       <p class="text-sm truncate hover:text-clip">{{fixture.league.round}}</p>
     </div>
-    <div class="flex justify-end w-1/2">
+    <div class="flex justify-end w-1/2 items-center">
+      <img class="h-4 px-1 object-cover" src="{{fixture.league.flag}}" alt="">
       <p class="text-sm truncate hover:text-clip">{{fixture.fixture.venue.name}}</p>
     </div>
   </div>
   <!-- Image -->
   <div class="flex justify-around p-2">
-    <div class="flex flex-col w-1/2 items-center">
+    <div class="flex flex-col w-1/2 items-center pt-5">
       <img class="h-20 object-cover rounded-xl"
         src="{{fixture.teams.home.logo}}" alt="">
-      <h2 class="font-bold text-lg mb-2">{{fixture.teams.home.name}}</h2>
+      <h2 class="font-bold text-base mb-2">{{fixture.teams.home.name}}</h2>
     </div>
-    <div class="flex flex-col justify-center">
-      <span class="self-center font-bold text-sm mb-2 text-ellipsis">
+    <div class="flex flex-col justify-evenly pb-2">
+      <span class="self-center font-bold text-sm text-ellipsis">
         {{fixture.fixture.date | slice:0:10 | replace : '[-]' : '/' }}
       </span>
-      <span class="self-center font-bold text-md mb-2">
+      <span class="self-center font-bold text-sm mb-2">
         {{fixture.fixture.date | slice:11:16}}
       </span>
+      <span class="self-center font-bold text-4xl mb-2">
+        {{ fixture.goals.home ?? 0 }} : {{ fixture.goals.away ?? 0 }}
+      </span>
+      <span [ngClass]="getStatusBadge(fixture.fixture.status.short)"
+        class="flex justify-center items-center text-center h-10 text-xs
+        font-semibold
+        px-2 py-0.5 rounded">
+        {{fixture.fixture.status.long}}
+      </span>
     </div>
-    <div class="flex flex-col w-1/2 items-center">
+    <div class="flex flex-col w-1/2 items-center pt-5">
       <img class="h-20 object-cover rounded-xl"
         src="{{fixture.teams.away.logo}}" alt="">
-      <h2 class="font-bold text-lg mb-2">{{fixture.teams.away.name}}</h2>
+      <h2 class="font-bold text-base mb-2">{{fixture.teams.away.name}}</h2>
     </div>
+  </div>
+  <div class="w-full bg-gray-200 rounded-full h-2 mb-4 dark:bg-gray-700">
+    <div class="bg-green-600 h-2 rounded-full dark:bg-green-500"
+      [ngStyle]="{'width': getTimeElapsed(fixture.fixture.status.elapsed)}"></div>
   </div>
   <div class="p-2">
     <!-- Description -->
