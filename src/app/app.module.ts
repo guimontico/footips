@@ -2,7 +2,7 @@ import { fixtureReducer } from './state/fixtures/fixture.reducer';
 import { CardComponent } from './components/card/card.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -19,6 +19,7 @@ import { SelectorComponent } from './components/selector/selector.component';
 import { SearchComponent } from './features/search/search.component';
 import { FixtureListComponent } from './features/fixture-list/fixture-list.component';
 import { ButtonComponent } from './components/button/button.component';
+import { GameDetailsComponent } from './features/game-details/game-details.component';
 
 @NgModule({
   declarations: [
@@ -29,8 +30,9 @@ import { ButtonComponent } from './components/button/button.component';
     DatepickerComponent,
     SelectorComponent,
     SearchComponent,
-    FixtureListComponent,
     ButtonComponent,
+    FixtureListComponent,
+    GameDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +45,7 @@ import { ButtonComponent } from './components/button/button.component';
     EffectsModule.forRoot([FixturesEffects]),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [NO_ERRORS_SCHEMA]
 })
 export class AppModule { }

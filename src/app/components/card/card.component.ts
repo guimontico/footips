@@ -3,11 +3,12 @@ import { Split } from '../../pipes/split/split.pipe'
 import { Fixtures } from './../../models/fixtures';
 import { Component, Input, OnInit, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-card',
   standalone: true,
-  imports: [CommonModule ,Split, ReplacePipe],
+  imports: [CommonModule ,Split, ReplacePipe, RouterModule ],
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.css']
 })
